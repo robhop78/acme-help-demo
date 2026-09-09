@@ -69,11 +69,14 @@ reaches the origin a few hundred times a day.
 
 ## Running it
 
-There is nothing to build. Open `index.html`, or serve the folder:
+There is nothing to build, but it does have to be served: `app.js` is an ES module, and
+a browser refuses to load modules over `file://`.
 
 ```
 python3 -m http.server 8000
 ```
+
+Then open <http://localhost:8000>.
 
 Delivery is public and read-only, so it works from any origin. The response carries
 `Access-Control-Allow-Origin: *`; no proxy, no server, no secret.
