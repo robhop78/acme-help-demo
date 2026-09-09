@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acme · Settings</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><span class="mark"></span> Acme</div>
+    <nav class="nav">
+      <a href="#">Dashboard</a>
+      <a href="#">Users</a>
+      <a href="#">Projects</a>
+      <a href="#" class="on">Settings</a>
+      <a href="#">Logs</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1>Settings</h1>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-tab="api">API</button>
+      <button role="tab" aria-selected="false" data-tab="billing">Billing</button>
+    </div>
+
+    <!-- ── API-tab ────────────────────────────────────────────────────── -->
+    <section data-panel="api">
+      <div class="card">
+        <h2>
+          API keys
+          <!-- Helpoppervlak 1: tooltip. Tekst komt van settings.api-keys. -->
+          <span class="tip" tabindex="0">
+            <span class="dot">i</span>
+            <span class="bubble" data-tip="settings.api-keys"><span class="missing">…</span></span>
+          </span>
+          <!-- Helpoppervlak 3: opent het paneel rechts. -->
+          <button class="help-btn" data-help-panel="settings.api-keys" title="Open help">?</button>
+        </h2>
+
+        <div class="field">
+          <label for="pk">Public key</label>
+          <input id="pk" value="pk_live_51H8x2eRt9QaBcD1234" readonly>
+        </div>
+
+        <div class="field">
+          <label for="sk">Secret key</label>
+          <input id="sk" type="password" value="sk_live_51H8x2eRt9QaBcD1234" readonly>
+          <!-- Helpoppervlak 2: field help, altijd zichtbaar. -->
+          <div class="fieldhelp" data-field="settings.rotate-key"><span class="missing">…</span></div>
+        </div>
+
+        <div class="field">
+          <label for="env">Environment</label>
+          <select id="env"><option>Production</option><option>Sandbox</option></select>
+        </div>
+
+        <button class="primary">Save changes</button>
+      </div>
+    </section>
+
+    <!-- ── Billing-tab ────────────────────────────────────────────────── -->
+    <section data-panel="billing" hidden>
+      <div class="banner">
+        <strong>Payment failed.</strong>
+        <span data-field="billing.payment-failed"><span class="missing">…</span></span>
+      </div>
+      <div class="card">
+        <h2>Payment method</h2>
+        <div class="field">
+          <label for="card">Card</label>
+          <input id="card" value="•••• •••• •••• 4242" readonly>
+        </div>
+        <button class="primary">Update card</button>
+      </div>
+    </section>
+
+    <p class="note">
+      <strong>Nothing on this page is written in its code.</strong>
+      Every explanation you see is fetched at runtime from HelpCCMS by its key, over one
+      public GET. Rewrite a sentence there, publish, and this page shows it within five
+      minutes. No release, no deploy, nobody touching this repository.
+      <br><br>
+      The whole integration is <a href="help.js">help.js</a>: about twenty lines, no package,
+      no API key. Keys in use on this page: <span id="keylist" class="key"></span>
+    </p>
+  </main>
+</div>
+
+<!-- Helpoppervlak 3: het paneel. -->
+<aside class="panel" data-open="false" aria-live="polite">
+  <header>
+    <h3 id="panel-title">Help</h3>
+    <button class="close" aria-label="Close">×</button>
+  </header>
+  <div class="body" id="panel-body"></div>
+  <div class="src">Delivered by HelpCCMS · key <code id="panel-key"></code></div>
+</aside>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
