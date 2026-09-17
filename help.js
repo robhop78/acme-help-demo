@@ -7,7 +7,7 @@ const BASE = "https://www.helpccms.com/api/deploy";
 
 // Alleen het id, niets eromheen. De Keys-weergave in de editor heeft een
 // kopieerknop die precies deze waarde geeft.
-const COLLECTION = "bc8a644e-6785-4ef3-8d3c-a6727b3332dd";
+const COLLECTION = "925a429b-2c12-4e30-8b92-f239398b8af3";
 
 const cache = new Map();
 
